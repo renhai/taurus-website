@@ -1,0 +1,39 @@
+<div ui-view>
+    <div>
+        <div ng-if="data.numberOfElements">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Poster</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Rating</th>
+                        <th>MPAA</th>
+                        <th>Genres</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="obj in data.content">
+                        <td>
+                            <span popover-enable="{{obj.image ?'true':'false'}}" uib-popover-template="'image_popover.html'" popover-trigger="'mouseenter'" popover-placement="right" popover-append-to-body="true">
+                                <image class="img-thumbnail" width = "50px" ng-src="{{obj.image || defaultImage}}"/>
+                            </span>
+                        </td>
+                        <td>
+                            <!--                    <button class="btn btn-link" popover-enable="{{obj.synopsis ?'true':'false'}}" uib-popover="{{obj.synopsis}}" popover-trigger="'click'" popover-placement="bottom" popover-append-to-body="true" style="outline:none;white-space: normal;">{{obj.title}}</button>-->
+                            <a ui-sref="movie.detail({movieId: obj.id})">{{obj.title}}</a>
+
+                        </td>
+                        <td>{{obj.year}}</td>
+                        <td>{{obj.rating.criticRatingValue || 'N/A'}}</td>
+                        <td>{{obj.mpaaRating}}</td>
+                        <td ng-init="genres = obj.genres.split(',')">
+                            <span uib-popover-template="'genres_popover.html'" popover-trigger="'mouseenter'" popover-placement="bottom" popover-append-to-body="true" ng-if="genres.length">{{genres[0]}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul uib-pagination total-items="data.totalElements" ng-model="condition.currentPage" boundary-links="true" items-per-page="data.size" max-size="5" class="pagination-sm" force-ellipses="true" ng-change="pageChanged()"></ul>
+        </div>
+    </div>
+</div>

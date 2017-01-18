@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3>{{movieDetails.title}}<small>({{movieDetails.year}})</small></h3>
+    </div>
+</div>
+<div class="row" ng-if="movieDetails.image">
+    <div class="col-sm-12">
+        <a href="{{movieDetails.image}}"> <img ng-src="{{movieDetails.image}}" class="img-responsive" alt="{{movieDetails.title}}">
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12" style="height: 15px;">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-5">
+        <strong>Critics Rating: </strong><span class="badge">{{movieDetails.rating.criticRatingValue || 'N/A'}}</span>
+    </div>
+    <div class="col-sm-5">
+        <strong>Audiece Rating: </strong><span class="badge">{{movieDetails.rating.audienceRatingValue || 'N/A'}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12" style="height: 10px;">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h4>Movie Info</h4>
+    </div>
+    <div class="col-sm-12" ng-if="movieDetails.synopsis">
+        <p>{{movieDetails.synopsis}}</p>
+    </div>
+    <div class="col-sm-12">
+        <table class="table">
+            <tr ng-if="movieDetails.mpaaRating">
+                <td>MPAA</td>
+                <td>{{movieDetails.mpaaRating}}</td>
+            </tr>
+            <tr ng-if="movieDetails.genres">
+                <td>Genre</td>
+                <td>{{movieDetails.genres}}</td>
+            </tr>
+            <tr ng-if="movieDetails.directors">
+                <td>Directed By</td>
+                <td>{{movieDetails.directors}}</td>
+            </tr>
+            <tr ng-if="movieDetails.authors">
+                <td>Written By</td>
+                <td>{{movieDetails.authors}}</td>
+            </tr>
+            <tr ng-if="movieDetails.inTheatersDate">
+                <td>In Theaters</td>
+                <td>{{movieDetails.inTheatersDate | date:'MMMM dd, yyyy'}}</td>
+            </tr>
+            <tr ng-if="movieDetails.onDvdDate">
+                <td>On DVD</td>
+                <td>{{movieDetails.onDvdDate | date:'MMMM dd, yyyy'}}</td>
+            </tr>
+            <tr ng-if="movieDetails.runtime">
+                <td>Runtime</td>
+                <td>{{movieDetails.runtime}}min</td>
+            </tr>
+            <tr ng-if="movieDetails.studio">
+                <td>Studio</td>
+                <td>{{movieDetails.studio}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h4>Casting</h4>
+    </div>
+    <div class="col-sm-12">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Actor</th>
+                    <th>Characters</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obj in movieDetails.castingItems">
+                    <td>
+                        <image class="img-thumbnail" width="50px" ng-src="{{obj.celebrityImage || defaultImage}}" />
+                    </td>
+                    <td>
+                        <a ui-sref="celebrity.detail({celebityId: obj.celebrityId})">{{obj.celebrityName}}</a>
+                    </td>
+                    <td>
+                        {{obj.characters}}
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
