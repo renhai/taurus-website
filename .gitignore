@@ -36,3 +36,7 @@ Thumbs.db
 *.exe
 *.o
 *.so
+
+bower_components/
+node_modules/
+dist/

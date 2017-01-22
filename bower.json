@@ -1,0 +1,28 @@
+{
+  "name": "taurus-website",
+  "homepage": "https://github.com/renhai/taurus-website",
+  "authors": [
+    "Hai Ren <myrenhai@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "1.5.9",
+    "angular-material": "^1.1.1",
+    "components-font-awesome": "^4.7.0",
+    "angular-sanitize": "1.5.9",
+    "angular-bootstrap": "^2.4.0",
+    "angular-ui-router": "0.3.2",
+    "angular-read-more": "^1.0.5"
+  },
+  "dependencies": {}
+}

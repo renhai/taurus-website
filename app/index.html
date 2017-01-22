@@ -8,34 +8,12 @@
     <meta name="author" content="Hai Ren <myrenhai@gmail.com>">
     <title>Movie Search Engine</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css" rel="stylesheet" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.9/angular-sanitize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.1/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-animate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-aria.min.js"></script>
-    <script src="scripts/index.js"></script>
-    <script src="scripts/readmore.min.js"></script>
-    <style>
-        body {
-            margin-top: 30px;
-            font-family: 'Open Sans', sans-serif;
-        }
-        .popover {
-            max-width: 500px;
-        }
-        .topright {
-            position: absolute;
-            top: -20px;
-            right: 10px;
-        }
-    </style>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet" type="text/css">
+    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body ng-app="taurusSiteApp">
@@ -74,16 +52,24 @@
     <script type="text/ng-template" id="celebrity_bio.html">
         <div class="popover-content">
             <span ng-bind-html = obj.bio></span>
-        </div> 
-    </script>    
+        </div>
+    </script>
     <script type="text/ng-template" id="image_popover.html">
         <image width = "200px" height="100%" ng-src="{{obj.image}}"/>
-    </script>    
+    </script>
     <script type="text/ng-template" id="genres_popover.html">
         <ul ng-if="obj.genres" class="list-unstyled" ng-init="genres = obj.genres.split(',')">
             <li ng-repeat="genre in genres">{{genre}}</li>
         </ul>
     </script>
 </body>
-
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-read-more/dist/readmore.min.js"></script>
+<script src="scripts/index.js"></script>
 </html>

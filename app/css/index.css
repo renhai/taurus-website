@@ -1,0 +1,10 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.popover {
+    max-width: 500px;
+}
+.topright {
+    position: fixed;
+    right: 10px;
+}
